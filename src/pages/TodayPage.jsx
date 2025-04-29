@@ -10,6 +10,7 @@ import "dayjs/locale/pt-br";
 import "react-circular-progressbar/dist/styles.css";
 import { Link } from "react-router-dom";
 
+
 dayjs.locale("pt-br");
 
 const TodayPage = () => {
@@ -118,7 +119,7 @@ const TodayPage = () => {
       </Nav>
       <Container>
         <Day data-test="today-counter">
-          <Title data-test="today">{dayjs().format("dddd, DD/MM")}</Title>
+        <Title data-test="today">{dayjs().format("dddd, DD/MM").replace(/^./, dayjs().format("dddd")[0].toUpperCase())}</Title>
           
         </Day>
         <HabitsContainer>
@@ -163,7 +164,9 @@ const TodayPage = () => {
       </Container>
       <Footer data-test="menu">
         <Habits data-test="habit-link" to="/habitos">
-          <TitleHabit>Hábitos</TitleHabit>
+          <TitleHabit>
+            Hábitos
+          </TitleHabit>
         </Habits>
         
 
